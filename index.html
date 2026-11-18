@@ -1,15 +1,148 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="3;url=https://auctionr.org/4/ef90295c4bfbbe148714741982a6fbe1">
-    <title>Redirecting...</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Opening Your Video</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #090e29, #171b46, #25134c);
+    color: white;
+}
+
+.container {
+    width: 90%;
+    max-width: 390px;
+    text-align: center;
+    padding: 40px 25px;
+    border-radius: 22px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 15px 45px rgba(0,0,0,0.35);
+    backdrop-filter: blur(15px);
+}
+
+.play {
+    width: 75px;
+    height: 75px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 30px;
+    color: white;
+    background: linear-gradient(135deg,#00c6ff,#7b2ff7);
+    box-shadow: 0 0 30px #694cff80;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    50% { transform: scale(1.08); }
+}
+
+h2 {
+    margin-top: 25px;
+    font-size: 23px;
+}
+
+p {
+    color: #c1c7e5;
+    font-size: 14px;
+}
+
+.progress {
+    width: 100%;
+    height: 12px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 30px;
+}
+
+.bar {
+    height: 100%;
+    width: 0%;
+    border-radius: 20px;
+    background: linear-gradient(90deg,#00c6ff,#7b2ff7,#ff4ecd);
+    box-shadow: 0 0 15px #7b2ff7;
+}
+
+#percent {
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 18px;
+    background: linear-gradient(90deg,#00c6ff,#ff4ecd);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.footer {
+    font-size: 12px;
+    color: #9ba5d0;
+    margin-top: 25px;
+}
+</style>
 </head>
+
 <body>
-    <h2>Please wait...</h2>
-    <p>You will be redirected in 3 seconds.</p>
-</body>
-<!-- Histats.com  START  (aync)-->
+
+<div class="container">
+
+    <div class="play">▶</div>
+
+    <h2>Your Video Is Opening</h2>
+
+    <p>Please wait while we prepare your video...</p>
+
+    <div class="progress">
+        <div class="bar" id="bar"></div>
+    </div>
+
+    <div id="percent">0%</div>
+
+    <p>Loading your video...</p>
+
+    <div class="footer">
+        Secure Video Redirect
+    </div>
+
+</div>
+
+<script>
+let progress = 0;
+let duration = 3000;
+let start = Date.now();
+
+let timer = setInterval(function() {
+    progress = Math.min(100,
+        ((Date.now() - start) / duration) * 100
+    );
+
+    let value = Math.floor(progress);
+
+    document.getElementById("bar").style.width = value + "%";
+    document.getElementById("percent").innerText = value + "%";
+
+    if (progress >= 100) {
+        clearInterval(timer);
+        window.location.href = "https://auctionr.org/4/ef90295c4bfbbe148714741982a6fbe1";
+    }
+}, 30);
+</script>
+    <!-- Histats.com  START  (aync)-->
 <script type="text/javascript">var _Hasync= _Hasync|| [];
 _Hasync.push(['Histats.start', '1,4845220,4,0,0,0,00010000']);
 _Hasync.push(['Histats.fasi', '1']);
@@ -21,4 +154,6 @@ hs.src = ('//s10.histats.com/js15_as.js');
 })();</script>
 <noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?4845220&101" alt="free hit counter" border="0"></a></noscript>
 <!-- Histats.com  END  -->
+
+</body>
 </html>
